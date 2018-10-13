@@ -4,6 +4,13 @@ header {
     background-size: cover;
 }
 
+section div {
+    background-image: url('../images/Hawaii_Background2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover; 
+}
+
+/*fasdfasd*/
 #currentWordText {
     letter-spacing: 15px;
     word-wrap: break-word;
