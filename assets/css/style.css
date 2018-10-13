@@ -1,0 +1,10 @@
+header {
+    background-image: url('../images/placeimg_1000_150_nature.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#currentWordText {
+    letter-spacing: 15px;
+    word-wrap: break-word;
+}

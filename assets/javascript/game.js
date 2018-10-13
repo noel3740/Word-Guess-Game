@@ -59,6 +59,8 @@ function getIndexOfCorrectLetters (letterGuessed) {
 
 //Function to run when the player wins
 function onWin() {
+    //Play win audio
+    document.getElementById("winAudio").play();
     //Increment the wins by 1
     wins++;
     //Get a new word
