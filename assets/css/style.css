@@ -1,17 +1,23 @@
+/*body element selector*/
+body {
+    background-image: url('../images/Hawaii_Background2.jpg'); /*Set the background image of the body*/
+    background-size: cover; /*scale the background image to cover the whole body*/
+}
+
+/*header element selector*/
 header {
-    background-image: url('../images/placeimg_1000_150_nature.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-image: url('../images/Hawaii_Background3_1920x435.JPG'); /*Set the background image of the header*/
+    background-position-y: -40px; /*Position the background image so more of the bottom of the image is visible*/
+    background-repeat: no-repeat; /*Do not repeat the background image*/
+    background-size: cover; /*scale the background image to cover the whole header*/
 }
 
-section div {
-    background-image: url('../images/Hawaii_Background2.jpg');
-    background-repeat: no-repeat;
-    background-size: cover; 
-}
-
-/*fasdfasd*/
+/*currentWordText ID selector*/
 #currentWordText {
-    letter-spacing: 15px;
-    word-wrap: break-word;
+    letter-spacing: 15px; /*Set the spacing of the current word so that there is seperation between each letter*/
+    word-wrap: break-word; /*Allow the current word to break within the word to that it can fit on smaller screens*/
+}
+
+.mainSection .jumbotron {
+    background: rgba(233,236,239,.80);
 }

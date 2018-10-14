@@ -11,15 +11,17 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <header class="jumbotron jumbotron-fluid text-white">
+    <!--The header div-->
+    <header class="jumbotron text-white bg-transparent">
         <div class="container-fluid">
             <h1 class="display-4 text-center">Word Guess Game</h1>
             <p class="lead text-center">Press any key to get started!</p>
         </div>
     </header>
 
-    <section class="mx-3">
-        <div class="jumbotron jumbotron-fluid px-3">
+    <!--Main Section div-->
+    <section class="mx-3 mainSection">
+        <div class="jumbotron px-3">
             <h2 class="display-4">Wins: <span id="winsText"></span></h2>
 
             <h2 class="display-4">Current Word: <span id="currentWordText"></span></h2>
@@ -31,7 +33,7 @@
 
     <!--Audio Section-->
     <audio id="winAudio">
-        <source src="assets/sounds/win.mp3" type="audio/mpeg">
+        <source src="assets/sounds/ukulele.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
