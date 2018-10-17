@@ -112,17 +112,15 @@ var wordGuessGame = {
                 this.getWord();
             }
         }
-    }
-};
+    },
 
+    //Process keyup event
+    processKeyUp: function(event) {
+        //Get the key the user pressed
+        var usersGuess = event.key;
+        var usersGuessKeyCode = event.keyCode;
 
-// This function is run whenever the user presses a key.
-document.onkeyup = function(event) {
-    //Get the key the user pressed
-    var usersGuess = event.key;
-    var usersGuessKeyCode = event.keyCode;
-
-    if (//Users key press was not already guessed
+        if (//Users key press was not already guessed
         wordGuessGame.lettersGuessed.indexOf(usersGuess.toLowerCase()) < 0 &&
         //Key pressed is a letter
         (usersGuessKeyCode >= 65 && usersGuessKeyCode <= 90)) {
@@ -133,7 +131,14 @@ document.onkeyup = function(event) {
             //Refresh the screen fields
             wordGuessGame.refreshScreenFields();
         }
-}
+    }
+};
+
+// This function is run whenever the user presses a key.
+document.onkeyup = function(event){ wordGuessGame.processKeyUp(event) };
+
+// This function is run whenever the user presses a key on the guess text box
+document.getElementById("guess").onkeyup = function(event){ wordGuessGame.processKeyUp; document.getElementById("guess").value = ""; };
 
 //Initialize the words array
 wordGuessGame.initializeWords();

@@ -6,10 +6,10 @@ body {
 
 /*header element selector*/
 header {
-    background-image: url('../images/Hawaii_Background3_1920x435.JPG'); /*Set the background image of the header*/
-    /* background-position-y: -40px;  *//*Position the background image so more of the bottom of the image is visible*/
+    background-image: url('../images/Hawaii_Background3.jpg'); /*Set the background image of the header*/
+    background-position-y: -90px;  /*Position the background image so more of the bottom of the image is visible*/
     background-repeat: no-repeat; /*Do not repeat the background image*/
-    background-size: cover; /*scale the background image to cover the whole header*/
+    background-size: cover;  /*scale the background image to cover the whole header*/
 }
 
 /*currentWordText ID selector*/
@@ -23,10 +23,17 @@ header {
     background: rgba(233,236,239,.80); /*Change the background color and opacity*/
 }
 
-/*For small screens*/
+/*For medium size screens and up*/
 @media screen and (min-width: 576px){
     #userInputDiv {
         display: none; /*make the user input div not visible as the textbox is only necessary on phones*/
+    }
+}
+
+/*For small screens*/
+@media screen and (max-width: 576px) {
+    header {
+        background-position: unset; /*remove background positioning so the image is fully displayed*/
     }
 }
 
