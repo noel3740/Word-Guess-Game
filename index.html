@@ -8,7 +8,7 @@
     <meta name="theme-color" content="#ff8a09">
     <!--Favicon-->
     <link rel="icon" sizes="192x192" href="assets/images/favicon.png">
-    <title>Word Guess Game</title>
+    <title>Hawaiian Word Guess Game</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!--Custom CSS-->
@@ -16,7 +16,7 @@
 </head>
 <body>
     <!--The header div-->
-    <header class="jumbotron text-white bg-transparent">
+    <header class="jumbotron-fluid bg-transparent py-3 mb-3">
         <div class="container-fluid">
             <h1 class="display-4 text-center">Word Guess Game</h1>
             <p class="lead text-center">Press any key to get started!</p>
@@ -24,16 +24,19 @@
     </header>
 
     <!--Main Section div-->
-    <section class="mx-3 mainSection">
-        <div class="jumbotron px-3">
-            <h2 class="display-4">Wins: <span id="winsText"></span></h2>
+    <section class="jumbotron px-3 mx-3 mainSection">
+        <h2 class="display-4">Wins: <span id="winsText"></span></h2>
 
-            <h2 class="display-4">Current Word: <span id="currentWordText"></span></h2>
+        <h2 class="display-4">Current Word: <span id="currentWordText"></span></h2>
 
-            <p>Number of Guesses Remaining: <span id="numGuessRemainText"></span></p>
-            <p>Letters Already Guessed: <span id="lettersGuessedText"></span></p>
+        <p>Number of Guesses Remaining: <span id="numGuessRemainText"></span></p>
+        <p>Letters Already Guessed: <span id="lettersGuessedText"></span></p>
+        
+        <div id="userInputDiv" class="form-group">
+            <input type="text" class="form-control" id="guess" placeholder="your guess" >
         </div>
-    </section> 
+
+    </section>
 
     <!--Audio Section-->
     <audio id="winAudio">

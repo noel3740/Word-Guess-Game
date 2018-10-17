@@ -6,7 +6,6 @@ var wordGuessGame = {
     lettersGuessedCorrectly: [],
     wins: 0,
     currentWord: "",
-    currentDisplayWord: "",
 
     //Initialize the words array
     initializeWords: function () {
@@ -57,8 +56,6 @@ var wordGuessGame = {
 
     //Function that refreshes all the dynamic html fields
     refreshScreenFields: function () {
-        //Set the current display word
-        this.setCurrentDisplayWord();
 
         //Set the html element contents to their coresponding variable values
         if (this.lettersGuessed.length >0){
@@ -70,20 +67,22 @@ var wordGuessGame = {
 
         document.getElementById("winsText").textContent = this.wins;
         document.getElementById("numGuessRemainText").textContent = this.numGuessRemain;
-        document.getElementById("currentWordText").textContent = this.currentDisplayWord;
+        document.getElementById("currentWordText").textContent = this.getCurrentDisplayWord();
     },
 
     //Get the word to display on the screen (with "_")
-    setCurrentDisplayWord: function () {
+    getCurrentDisplayWord: function () {
         //Set the current display word to the current word variable
-        this.currentDisplayWord = this.currentWord;
+        var currentDisplayWord = this.currentWord;
 
         //Create a regular expression search pattern to search for letters that were not guessed correctly
         var searchLetters = this.lettersGuessedCorrectly.toString().replace(",", "");
         var searchPattern = new RegExp("[^" + searchLetters + "]", "g");
     
         //Using the regular expression above, replace any letters that have not been guessed yet with "_"
-        this.currentDisplayWord = this.currentDisplayWord.replace(searchPattern, "_");
+        currentDisplayWord =  currentDisplayWord.replace(searchPattern, "_");
+
+        return currentDisplayWord;
     },
 
     //Process the user's guess
@@ -96,11 +95,11 @@ var wordGuessGame = {
             //Add letter to array of letters guessed correctly
             this.lettersGuessedCorrectly.push(usersGuess);
 
-            //Set the display word text (with "_")
-            this.setCurrentDisplayWord();
+            //Get the display word text (with "_")
+            var currentDisplayWord = this.getCurrentDisplayWord();
 
             //If the current display word text does not contain "_" then the user wins
-            if (this.currentDisplayWord.indexOf("_") < 0){
+            if (currentDisplayWord.indexOf("_") < 0){
                 this.onWin();
             }
         }
