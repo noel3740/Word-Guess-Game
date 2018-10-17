@@ -28,10 +28,6 @@ var wordGuessGame = {
             this.currentWord = this.words[randIndex].toLowerCase();
             //Remove the word from the array list so it doesn't get picked again
             this.words.splice(randIndex, 1);
-    
-            //Debugging. Need to remove
-            console.log("Current Word: " + this.currentWord);
-            console.log("Words left: " + this.words.length);
         }
         //words array does not have values 
         else { 
@@ -136,9 +132,6 @@ var wordGuessGame = {
 
 // This function is run whenever the user presses a key.
 document.onkeyup = function(event){ wordGuessGame.processKeyUp(event) };
-
-// This function is run whenever the user presses a key on the guess text box
-document.getElementById("guess").onkeyup = function(event){ wordGuessGame.processKeyUp; document.getElementById("guess").value = ""; };
 
 //Initialize the words array
 wordGuessGame.initializeWords();
