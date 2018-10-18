@@ -1,7 +1,10 @@
 /*body element selector*/
 body {
-    background-image: url('../images/Hawaii_Background2.jpg'); /*Set the background image of the body*/
-    background-size: cover; /*scale the background image to cover the whole body*/
+    background-image: url('../images/Hawaii_Background2.jpg'); /*change the background image*/
+    background-position: center; /*center the image on the screen*/
+    background-attachment: fixed; /*fix the image to the viewport*/
+    background-repeat: no-repeat; /*Do not repeat the background image*/
+    background-size: cover;  /*scale the background image to cover the whole screen*/
 }
 
 /*header element selector*/
