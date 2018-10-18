@@ -113,13 +113,14 @@ var wordGuessGame = {
     //Process keyup event
     processKeyUp: function(usersGuess) {
     
+        usersGuess = usersGuess.toLowerCase();
+
         if (//Users key press was not already guessed
-            wordGuessGame.lettersGuessed.indexOf(usersGuess.toLowerCase()) < 0 &&
+            wordGuessGame.lettersGuessed.indexOf(usersGuess) < 0 &&
             //Make sure the guess has only one character and that character is a letter
             usersGuess.length == 1 && usersGuess.match(/[a-z]/i)) {
             //Process the user's guess
             wordGuessGame.processUserGuess(usersGuess);
-
             //Refresh the screen fields
             wordGuessGame.refreshScreenFields();
         }
