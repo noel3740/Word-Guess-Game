@@ -23,11 +23,11 @@ header {
     background: rgba(233,236,239,.80); /*Change the background color and opacity*/
 }
 
-/*For medium size screens and up*/
-@media screen and (min-width: 576px){
-    #userInputDiv {
-        display: none; /*make the user input div not visible as the textbox is only necessary on phones*/
-    }
+/*winModalContent class*/
+.winModalContent {
+    background-image: url('../images/Hawaii_Background1.jpg'); /*Set the background image*/
+    background-repeat: no-repeat; /*Do not repeat the background image*/
+    background-size: cover;  /*scale the background image to cover the whole div*/
 }
 
 /*For small screens*/

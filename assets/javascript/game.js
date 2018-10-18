@@ -1,3 +1,9 @@
+//Declare global variables
+var winAudio = document.getElementById("winAudio");
+var winModal = $('#winModal');
+var userInputDiv = document.getElementById("userInputDiv");
+var guessTextBox = document.getElementById("guess");
+
 //Declare object
 var wordGuessGame = {
     numGuessRemain: 12,
@@ -40,8 +46,10 @@ var wordGuessGame = {
 
     //Function to run when the player wins
     onWin: function () {
+        //Show win modal
+        winModal.modal('show');
         //Play win audio
-        document.getElementById("winAudio").play();
+        winAudio.play();
         //Increment the wins by 1
         this.wins++;
         //Get a new word
@@ -112,7 +120,7 @@ var wordGuessGame = {
 
     //Process keyup event
     processKeyUp: function(usersGuess) {
-    
+        
         usersGuess = usersGuess.toLowerCase();
 
         if (//Users key press was not already guessed
@@ -127,11 +135,30 @@ var wordGuessGame = {
     }
 };
 
-// This function is run whenever the user presses a key.
-document.onkeyup = function(event){ wordGuessGame.processKeyUp(event.key) };
+//If the device has a touchscreen then display a textbox where the usuer can click on and enter the letter they want to guess
+if ('ontouchstart' in document.documentElement) {
+    //Make the input textbox visible
+    userInputDiv.style.display = "block";
 
-// This function is run whenever the user presses a key on the guess text box
-document.getElementById("guess").oninput = function(event){ console.log(event); wordGuessGame.processKeyUp(event.data); document.getElementById("guess").value = ""; };
+    // This function is run whenever the user presses a key on the guess text box. Clear out the users input after the processKeyUp method is run. 
+    guessTextBox.oninput = function(event){ wordGuessGame.processKeyUp(event.data); guessTextBox.value = ""; };
+}
+//There is no touchscreen
+else {
+    //Make the input textbox not visible
+    userInputDiv.style.display = "none";
+
+    // This function is run whenever the user presses a key.
+    document.onkeyup = function(event){ wordGuessGame.processKeyUp(event.key) };
+}
+
+//Pause the win audio if the user clicked on ok on the modal
+winModal.on('hidden.bs.modal', function (e) {
+    //Pause the audio
+    winAudio.pause(); 
+    //Set the current time on the audio back to 0 so if the user wins again the audio plays from the beginning. 
+    winAudio.currentTime = 0; 
+  });
 
 
 //Initialize the words array

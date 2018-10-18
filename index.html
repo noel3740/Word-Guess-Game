@@ -38,11 +38,32 @@
  
     </section>
 
-    <!--Audio Section-->
-    <audio id="winAudio">
-        <source src="assets/sounds/ukulele.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
+    <!-- Win Modal -->
+    <div class="modal fade" id="winModal" tabindex="-1" role="dialog" aria-labelledby="winModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content winModalContent">
+                <div class="modal-header text-white">
+                    <h1 class="modal-title" id="winModalTitle">You Won!</h1>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!--Win gif-->
+                    <img src="assets/images/win.gif" alt="hula dance gif" style="width: 100%;">
+
+                    <!--Audio Section-->
+                    <audio id="winAudio" loop>
+                        <source src="assets/sounds/ukulele.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                <div class="modal-footer">
+                    <button id="btnWinModalOK" type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
