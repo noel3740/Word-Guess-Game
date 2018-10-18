@@ -111,16 +111,12 @@ var wordGuessGame = {
     },
 
     //Process keyup event
-    processKeyUp: function(event) {
-        //Get the key the user pressed
-        var usersGuess = event.key;
-        var usersGuessKeyCode = event.keyCode;
-
+    processKeyUp: function(usersGuess) {
+    
         if (//Users key press was not already guessed
-        wordGuessGame.lettersGuessed.indexOf(usersGuess.toLowerCase()) < 0 &&
-        //Key pressed is a letter
-        (usersGuessKeyCode >= 65 && usersGuessKeyCode <= 90)) {
-
+            wordGuessGame.lettersGuessed.indexOf(usersGuess.toLowerCase()) < 0 &&
+            //Make sure the guess has only one character and that character is a letter
+            usersGuess.length == 1 && usersGuess.match(/[a-z]/i)) {
             //Process the user's guess
             wordGuessGame.processUserGuess(usersGuess);
 
@@ -131,7 +127,11 @@ var wordGuessGame = {
 };
 
 // This function is run whenever the user presses a key.
-document.onkeyup = function(event){ wordGuessGame.processKeyUp(event) };
+document.onkeyup = function(event){ wordGuessGame.processKeyUp(event.key) };
+
+// This function is run whenever the user presses a key on the guess text box
+document.getElementById("guess").oninput = function(event){ console.log(event); wordGuessGame.processKeyUp(event.data); document.getElementById("guess").value = ""; };
+
 
 //Initialize the words array
 wordGuessGame.initializeWords();
