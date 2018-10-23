@@ -80,7 +80,7 @@ var wordGuessGame = {
         var currentDisplayWord = this.currentWord;
 
         //Create a regular expression search pattern to search for letters that were not guessed correctly
-        var searchLetters = this.lettersGuessedCorrectly.toString().replace(",", "");
+        var searchLetters = this.lettersGuessedCorrectly.join("");
         var searchPattern = new RegExp("[^" + searchLetters + "]", "g");
     
         //Using the regular expression above, replace any letters that have not been guessed yet with "_"
