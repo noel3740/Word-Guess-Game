@@ -11,6 +11,7 @@ var wordGuessGame = {
     letterGuessed: [],
     lettersGuessedCorrectly: [],
     wins: 0,
+    losses: 0,
     currentWord: "",
 
     //Initialize the words array
@@ -58,6 +59,16 @@ var wordGuessGame = {
         this.refreshScreenFields();
     },
 
+    //Function is run on a loss
+    onLoss: function() {
+        //increment losses
+        this.losses++;
+        //Get a new word
+        this.getWord();
+        //Refresh the screen fields
+        this.refreshScreenFields();
+    },
+
     //Function that refreshes all the dynamic html fields
     refreshScreenFields: function () {
 
@@ -70,6 +81,7 @@ var wordGuessGame = {
         }
 
         document.getElementById("winsText").textContent = this.wins;
+        document.getElementById("lossesText").textContent = this.losses;
         document.getElementById("numGuessRemainText").textContent = this.numGuessRemain;
         document.getElementById("currentWordText").textContent = this.getCurrentDisplayWord();
     },
@@ -112,8 +124,8 @@ var wordGuessGame = {
             this.numGuessRemain--;
 
             if (this.numGuessRemain == 0) {
-                //Get a new word
-                this.getWord();
+                //Run the onLoss function
+                this.onLoss();
             }
         }
     },
