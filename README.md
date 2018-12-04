@@ -8,3 +8,5 @@ A simple hawaiian themed word guessing game for your enjoyment!
 * If a letter is already guessed it will not count against your number of tries.
 * If you run out of tries or if you guess the word correctly, the game will obtain another word and the game starts again. 
 * If the user wins a hawaiian song will be played. 
+
+Deployed to https://noel3740.github.io/Word-Guess-Game/
